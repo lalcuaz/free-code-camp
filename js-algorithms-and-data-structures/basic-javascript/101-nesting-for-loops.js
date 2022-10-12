@@ -1,0 +1,18 @@
+function multiplyAll(arr) {
+  let product = 1;
+  // Only change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    for (let x = 0; x < arr[i].length; x++) {
+      product *= arr[i][x];
+    }
+  }
+
+  // Only change code above this line
+  return product;
+}
+
+multiplyAll([
+  [1, 2],
+  [3, 4],
+  [5, 6, 7],
+]);
