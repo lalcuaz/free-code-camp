@@ -1,0 +1,28 @@
+regex-notes
+
+? -> /t[a-z]*?i/ -> lazy matching, finds the smallest possible part of the string that satisfies the regex pattern
+
+* -> /go*/ -> matches characters that occur zero or more times
+
++ -> /a+/ -> matches characters or a group of them that appear one or more times in a row that appear consecutively
+
+[^] -> /[^aeiou]/ -> negated character set, a set of characters that we do not want to match
+
+[-] -> [a-e7-9] -> define a range of characters
+
+[] -> /b[aiu]g/ -> character classes, match anything within the brackets only
+
+. -> /hu./ -> wildcard character, will match any one character, hu. -> ['hut', 'hug', 'hum']
+
+g -> /Repeat/g -> a flag, g flag extracts a pattern more than once
+
+.match() -> extracts the matches into an array. ["hello", "world"] the regex is used as a parameter
+
+i -> /ignorecase/i -> a flag, i flag ignores cases
+
+| -> /yes|no/ -> OR operator, match yes or no will return true or false
+
+.test() -> takes the regex and applies it to a string and returns true or false. the regex is used as a parameter
+
+
+                
