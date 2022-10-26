@@ -1,5 +1,15 @@
 regex-notes
 
+\d -> /\d/ -> shorthand character class for [0-9]
+
+\W -> /\W/ -> the opposite of \w , [^A-Za-z0-9_]
+
+\w -> /\w/ -> shorthand character class for [A-Za-z0-9_] 
+
+$ -> /story$/ -> search for patterns at the end of strings
+
+^ -> /^Ricky/ -> outside of a character set, it is used to search for patterns at the beginning of strings
+
 ? -> /t[a-z]*?i/ -> lazy matching, finds the smallest possible part of the string that satisfies the regex pattern
 
 * -> /go*/ -> matches characters that occur zero or more times
