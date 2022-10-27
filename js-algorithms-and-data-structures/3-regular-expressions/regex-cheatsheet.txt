@@ -1,5 +1,13 @@
 regex-notes
 
+() -> /P(engu|umpk)in/g -> check for groups of characters using a regular expression.
+
+(?=) -> /q(?=u)/ -> positive lookahead, will look to make sure the element in the search pattern is there, but wont actually match it. would return q for qu
+
+(?!) -> /q(?!u)/ -> negative lookahead, samething but will make sure the element is not there. would return q for qt
+
+? -> /colou?r/ -> specify the possible existence of an element. This checks for zero or one of the preceding element. In this case, color has two different spellings, the u is optional
+
 {} -> /a{3,5}h/ -> quantify specifiers, put two numbers within brackets, for lower and upper number of patters. In example, match only the letter a appearing betweem 3 and 5 times in the string.
 {} -> /a{3}h/ -> to specify a specific number
 
