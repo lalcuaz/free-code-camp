@@ -1,6 +1,7 @@
 regex-notes
 
 {} -> /a{3,5}h/ -> quantify specifiers, put two numbers within brackets, for lower and upper number of patters. In example, match only the letter a appearing betweem 3 and 5 times in the string.
+{} -> /a{3}h/ -> to specify a specific number
 
 \s -> matches whitespace and also carriage return, tab, form feed and new line characters. equal to [\r\t\f\n\v], also has \S
 
