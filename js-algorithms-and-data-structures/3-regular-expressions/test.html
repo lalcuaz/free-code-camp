@@ -8,9 +8,11 @@
   </head>
   <body>
     <script>
-      let quoteSample = "The quick brown fox jumps over the lazy dog.";
-      let alphabetRegex = /a-z/gi; // Change this line
-      let result = quoteSample.match(alphabetRegex); // Change this line
+      let username = "JackOfAllTrades";
+      let userCheck = /[a-z][a-z]\d*/i; // Change this line
+      let result = userCheck.test(username);
+      console.log(result);
+      let result2 = username.match(userCheck);
       console.log(result);
     </script>
   </body>
