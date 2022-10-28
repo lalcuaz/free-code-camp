@@ -8,11 +8,9 @@
   </head>
   <body>
     <script>
-      let username = "JackOfAllTrades";
-      let userCheck = /[a-z][a-z]\d*/i; // Change this line
-      let result = userCheck.test(username);
-      console.log(result);
-      let result2 = username.match(userCheck);
+      let hello = "   Hello, World!  ";
+      let wsRegex = /^\s+|\s+$/g; // Change this line
+      let result = hello.replace(wsRegex, ""); // Change this line
       console.log(result);
     </script>
   </body>

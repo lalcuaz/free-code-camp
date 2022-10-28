@@ -1,5 +1,11 @@
 regex-notes
 
+.replace() -> text.replace(regex, 'string') -> method replaces the text matched. the function takes the regex and the string to replace or a func to do something. "The sky is silver."; /silver/; "blue'; would change to "The sky is blue.";
+can also access capture groups with $
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+
+/(\w+) \1 \1/ -> capture group, enclose the regex pattern to be captured in parentheses. In this case, capture a word consisting of alphanumeric characters. The substring matched will be saved to a temporary 'variable' which can be accessed using a backslash and the number of the capture group eg. \1. 1 denotes the position from left to right starting at 1. 
+
 () -> /P(engu|umpk)in/g -> check for groups of characters using a regular expression.
 
 (?=) -> /q(?=u)/ -> positive lookahead, will look to make sure the element in the search pattern is there, but wont actually match it. would return q for qu
