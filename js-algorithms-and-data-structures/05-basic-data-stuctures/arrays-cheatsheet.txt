@@ -1,0 +1,11 @@
+Arrays
+
+.splice(1, 2) -> removes any number of consecutive elements from anywhere in an array. takes up to 3 params, first param represents the index on the array from which to begin removing elements, second param indicates the number of elements to delete, .Also returns a new array containing the removed elements.
+
+.shift() -> opposite of shift, removes an element from the beginning of an array, no params, one element at a time.
+
+.pop() -> opposite of push, removes an element from the end of an array, no params, one element at a time.
+
+.unshift('x3', 'x4') -> adds elements to the beginning, ['x3', 'x4', 'x1', 'x2']
+
+.push('x3') -> adds elements to the end of an array, ['x1', 'x2', 'x3']
