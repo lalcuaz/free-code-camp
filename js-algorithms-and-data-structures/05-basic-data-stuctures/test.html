@@ -8,19 +8,19 @@
   </head>
   <body>
     <script>
-      function copyMachine(arr, num) {
-        let newArr = [];
-        while (num >= 1) {
-          // Only change code below this line
-          let copiedArr = [...arr];
-          newArr.push(copiedArr);
-          // Only change code above this line
-          num--;
-        }
-        return newArr;
-      }
+      let foods = {
+        apples: 25,
+        oranges: 32,
+        plums: 28,
+      };
 
-      console.log(copyMachine([true, false, true], 2));
+      // Only change code below this line
+      foods.bananas = 13;
+      foods["grapes"] = 35;
+      foods.strawberries = 27;
+      // Only change code above this line
+
+      console.log(foods);
     </script>
   </body>
 </html>
