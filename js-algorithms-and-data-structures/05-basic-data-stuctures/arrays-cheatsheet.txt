@@ -1,6 +1,12 @@
 Arrays
 
-.splice(1, 2) -> removes any number of consecutive elements from anywhere in an array. takes up to 3 params, first param represents the index on the array from which to begin removing elements, second param indicates the number of elements to delete, .Also returns a new array containing the removed elements.
+.indexOf('orange') -> takes an element as a param, returns the position/index of said element or -1 if the element does not exist in the array
+
+...-> [...thisArray]; -> ... spread operator, allows us to copy all of an array's elements, in order. Copied array is unchanged.
+
+.slice(1, 2) -> copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. 2 params, first at which to begin extraction, second where to stop extraction. Extraction occurs up to but not including the second param. 
+
+.splice(1, 2, 3, 4) -> removes any number of consecutive elements from anywhere in an array. takes up to 3 params, first param represents the index on the array from which to begin removing elements, second param indicates the number of elements to delete, .Also returns a new array containing the removed elements. The 3rd param onwards are elements added to the array from the first removed element.
 
 .shift() -> opposite of shift, removes an element from the beginning of an array, no params, one element at a time.
 
