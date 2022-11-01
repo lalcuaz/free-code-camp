@@ -1,4 +1,12 @@
-Arrays
+Arrays/objects
+
+Object.keys() -> generates an array of strings which contains all the keys stored in an object. no specific order to the entries in the array.
+
+for in -> for (let user in users) {} -> iterate through all the keys within an obj NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+
+.hasOwnProperty() -> checks if an obj has a specific property. returns true or false
+
+in -> 'Alan' in users; -> checks if an obj has a specific property. returns true or false
 
 .indexOf('orange') -> takes an element as a param, returns the position/index of said element or -1 if the element does not exist in the array
 
