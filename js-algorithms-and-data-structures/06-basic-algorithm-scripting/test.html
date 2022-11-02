@@ -8,16 +8,25 @@
   </head>
   <body>
     <script>
-      function factorialize(num) {
-        let result = 1;
-        for (let i = 1; i < num; i++) {
-          result = result * (i + 1);
-          console.log(result);
+      function findLongestWordLength(str) {
+        let length = 0;
+        let temp = 0;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] !== " ") {
+            temp++;
+            if (temp > length) {
+              length = temp;
+            }
+          } else {
+            temp = 0;
+          }
         }
-        return result;
+        return length;
       }
 
-      factorialize(5); //120
+      console.log(
+        findLongestWordLength("The quick brown fox jumped over the lazy dog")
+      );
     </script>
   </body>
 </html>
