@@ -8,37 +8,18 @@
   </head>
   <body>
     <script>
-      function largestOfFour(arr) {
-        const largestArr = [];
-        let previousNum = -Infinity;
-        for (let i = 0; i < arr.length; i++) {
-          let largestNum = -Infinity;
-          for (let x = 0; x < arr[i].length; x++) {
-            if (arr[i][x] > largestNum) {
-              largestNum = arr[i][x];
-            }
-          }
-          largestArr.push(largestNum);
+      function repeatStringNumTimes(str, num) {
+        if (num <= 0) {
+          return "";
         }
-        return largestArr;
+        let newStr = "";
+        for (let i = 0; i < num; i++) {
+          newStr += str;
+        }
+        return newStr;
       }
 
-      console.log(
-        largestOfFour([
-          [4, 5, 1, 3],
-          [13, 27, 18, 26],
-          [32, 35, 37, 39],
-          [1000, 1001, 857, 1],
-        ])
-      );
-      console.log(
-        largestOfFour([
-          [13, 27, 18, 26],
-          [4, 5, 1, 3],
-          [32, 35, 37, 39],
-          [1000, 1001, 857, 1],
-        ])
-      );
+      console.log(repeatStringNumTimes("abc", 3));
     </script>
   </body>
 </html>
