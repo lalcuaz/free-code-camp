@@ -1,7 +1,31 @@
 function titleCase(str) {
+  let word = "";
+  let wordArray = [];
+  let newWord = "";
   str = str.toLowerCase();
-  for (let i = 0; i < str.length; i++) {}
-  return str;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
+      word += str[i];
+      if (word.length === 1) {
+        word = word.toUpperCase();
+      }
+    } else {
+      wordArray.push(word);
+      word = "";
+    }
+  }
+  if (word !== "") {
+    wordArray.push(word);
+  }
+
+  for (let i = 0; i < wordArray.length; i++) {
+    if (wordArray[i] === wordArray[wordArray.length - 1]) {
+      newWord += wordArray[i];
+    } else {
+      newWord += wordArray[i] + " ";
+    }
+  }
+  return newWord;
 }
 
-console.log(titleCase("I'm a little tea pot"));
+titleCase("I'm a little tea pot");
