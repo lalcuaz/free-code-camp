@@ -1,5 +1,9 @@
 Objects
 
+let animal = Object.create(Animal.prototype); -> creates a new obj and sets obj as the new obj's prototype. gives the animal instance the same blueprint as any other instance of Animal. has advantages for inheritance over let animal = new Animal();
+
+Object.prototype.isPrototypeOf(Bird.prototype) -> an object's prototype itself is an object. Because prototype is an object, a prototype can have its own prototype. the prototype of Bird.prototype is Object.prototype
+
 Bird.prototype.isPrototypeOf(duck); -> returns true if object inherits
 prototype property from the specified constructor.
 
