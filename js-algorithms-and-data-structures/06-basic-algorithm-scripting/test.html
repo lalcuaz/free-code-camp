@@ -8,42 +8,17 @@
   </head>
   <body>
     <script>
-      function getIndexToIns(arr, num) {
-        const sortedArray = [];
-        let numIndex = -1;
-        arr.sort(sortAscending);
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i] >= num && numIndex === -1) {
-            sortedArray.push(num);
-            numIndex = i;
-          }
-          sortedArray.push(arr[i]);
+      function chunkArrayInGroups(arr, size) {
+        const newArray = [];
+        for (let i = 0; i < arr.length; i += size) {
+          newArray.push(arr.slice(i, i + size));
         }
-
-        if (numIndex === -1) {
-          sortedArray.push(num);
-          return sortedArray.indexOf(num);
-        }
-        return numIndex;
+        return newArray;
       }
 
-      function sortAscending(first, second) {
-        if (first === second) {
-          return 0;
-        }
-        if (first < second) {
-          return -1;
-        } else {
-          return 1;
-        }
-      }
-
-      console.log(getIndexToIns([40, 60], 50));
-      console.log(getIndexToIns([10, 20, 30, 40, 50], 30));
-      console.log(getIndexToIns([10, 20, 30, 40, 50], 35));
-      console.log(getIndexToIns([5, 3, 20, 3], 5));
-      console.log(getIndexToIns([2, 5, 10], 15));
-      console.log(getIndexToIns([], 1));
+      console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3));
+      console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4));
     </script>
   </body>
 </html>
