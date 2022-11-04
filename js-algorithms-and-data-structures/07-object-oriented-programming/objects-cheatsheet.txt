@@ -1,0 +1,7 @@
+Objects
+
+let blueBird = new Bird(){} -> tells js to create a new instance of Bird called blueBird.
+
+function Bird() {} -> constructor defines an object with properties. Captitialized name to distinguish from other functions
+
+sayName: function() {} -> create a method that is a property of an object.
