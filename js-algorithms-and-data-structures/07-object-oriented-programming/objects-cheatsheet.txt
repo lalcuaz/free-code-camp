@@ -1,6 +1,28 @@
 Objects
 
-let blueBird = new Bird(){} -> tells js to create a new instance of Bird called blueBird.
+Bird.prototype.isPrototypeOf(duck); -> returns true if object inherits
+prototype property from the specified constructor.
+
+duck.constructor === Bird; -> returns true or false. special constructor property located on object instances. A reference to the constructor function that created the instance
+
+for (let property in beagle) -> iterate over all of the object's properties
+
+Bird.prototype.numLegs = 2; -> when there are duplicate variables, for ex numLegs for every bird, use the prototype of Bird. properties in the prototype are shared among ALL instances (like a global variable).
+
+Bird.prototype = { -> set the prototype to a new object
+  numLegs: 2,         that already contains the properties
+  eat: function() {   
+    console.log("nom nom nom");
+  },
+  constructor: Bird
+}
+-> manually setting the prototype to a new object erases the constructor property.
+
+hasOwnProperty() -> returns true or false if the object's properties are defined directly on the instance object. defined through the constructor.
+
+bluebird instanceof Bird; -> instanceof allows you to compare an object to a constructor, returns true or false based on whether the obj was created with the constructor. 
+
+let blueBird = new Bird(){} -> tells js to create a new instance of Bird called blueBird. the object is said to be an instance of its constructor.
 
 function Bird() {} -> constructor defines an object with properties. Captitialized name to distinguish from other functions
 
