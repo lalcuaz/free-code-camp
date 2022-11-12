@@ -1,0 +1,27 @@
+basic javascript
+
+a ? b : c -> ternary/conditional operator. a is the condition, b is the code to run if true, c if false. can also have multiple conditions
+a === b ? "Equal" : "Not Equal";
+
+return (num > 0) ? "positive"
+  : (num < 0) ? "negative"
+  : "zero"
+
+parseInt(string) -> parses a string and returns an integer. returns NaN if the first character cannot be converted. can have a second parameter, the radix -> parseInt(string, radix); -> which specifies the base of the num in the string. can be an integer between 2 and 36
+
+Math.floor() -> rounds the number down to its nearest whole number. Math.floor(Math.random() * 20); generates a whole number between 0 and 19
+Math.floor(Math.random() * (max - min +1)) + min 
+
+Math.random() -> generates a random decimal number between 0(inclusive) and 1(exclusive).
+
+recursion -> a concept that a function can be expressed in terms of itself. 
+multiply(arr, n) a function that multiplies the first n elements of an array. Can be easily done with a for loop.
+however, multiply(arr, n) == multiply(arr, n-1) * arr[n - 1]
+-> 
+function multiply(arr, n) {
+  if (n <= 0) {
+    return 1;
+  } else {
+    return multiply(arr, n-1) * arr[n - 1];
+  }
+}
