@@ -1,0 +1,12 @@
+04-debugging
+
+console -> .log()
+        -> .clear() clears the console
+        -> .warn(warningString) writes a warning to the console
+
+typeof -> console.log(typeof []); will display object, js recognizes seven primitive(immutable) data types: Boolean, Null, Undefined, Number, String, Symbol, BigInt. and Object for mutable items.
+
+""'' -> use one pair to capture the string and you can use the other within it. \ escape character 
+
+false -> almost every value on its own in js evaluates to true except for 'falsy' values: false, 0, ""(empty string), NaN, undefined, null
+  
