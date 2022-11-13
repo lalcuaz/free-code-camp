@@ -1,5 +1,43 @@
 es6 Notes
 
+<script type="module" src="index.js"></script> -> module script
+a way to easily share code among js files. exporting parts of a file for use in one or more other files and importing the parts you need where you need them.
+
+export const add = (x, y) => {
+  return x + y;
+}
+or
+const add = (x, y) => {
+  return x + y;
+}
+
+export { add };
+
+getter/setter
+obtain and set the value of a property within an object. allows a user to do these functions without giving them direct access to the private variable
+get temperature() {
+  return this._temperature = 5/9 * (this._temperature - 32);
+}
+
+set temperature(temp) {
+  this._temperature = temp * 9.0 / 5 + 32;
+}
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+
+class syntax
+new syntax to create objects, using the class keyword.
+a class declaration has a constructor method that is invoked with the new keyword. if the constructor is not explicitly defined, then it is implicitly defined with no arguments.
+the class keyword declares a new function to which a constructor is added.
+class Vegetable {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
 defining functions within objects.
 const person = {
   name: "Taylor",
