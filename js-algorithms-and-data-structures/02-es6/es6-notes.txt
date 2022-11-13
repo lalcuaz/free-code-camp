@@ -1,0 +1,90 @@
+es6 Notes
+
+${person.name} -> template literals.
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56
+};
+
+const greeting = `Hello, my name is #{person.name}!
+I am ${person.age} years old.`;
+
+first, backticks are used ` not quotes '/" 
+second, the string is multi-line in the code and in the output, no \n needed
+third, no concatenation operator, using ${} instead. can include ${a + b} operations as well. 
+
+
+const { name, age } = user; -> destructuring assignment. instead of 
+const name = user.name;
+const age = user.age;
+we can use
+const { name, age } = user;
+we can also give new variable names by using a colon instead.
+const { name: userName, age: userAge} = user; 
+the values are assigned to variables called userName and userAge instead.
+
+can also use destructuring on nested objects
+const user = {
+  johnDoe: {
+    age: 34,
+    email: 'johnDoe@blah.com'
+  }
+};
+const { johnDoe: { age, email }} = user;
+or
+const { johnDoe: { age: userAge, email: userEmail }} = user;
+
+can also destructure arrays. the spread operator unpacks all contents of an array into a comma-separated list. but you cannot pick or choose which elements you want to assign to variables unlike destructuring.
+
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+,,, skips indexes, logging a b c returns 1 2 5
+let a = 8, b = 6;
+[b, a] = [a, b];
+switches the values around. b === 8 and a === 6 
+
+can use with the rest parameter
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 6];
+logging returns 1 2 [3,4,5,6]
+similar to Array.prototype.slice();
+const [,, ...shorterList] = list;
+returns the same array with first two elements removed
+
+can use to pass an object as a function's parameters
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+}
+instead ->
+const profileUpdate = ({ name, age, nationality, location }) => {
+}
+
+another one -> 
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+const half = ({max, min}) => (max + min) / 2.0;  
+
+function howMany(...args) -> rest parameter, creates functions that take a variable number of arguments. Arguments are stored in an array that can be accessed inside the function. ... eliminates the need to check the args array and allows us to apply map(), filter(), and reduce() on the parameters array.
+it returns an unpacked array, it spreads the array.
+arr2 = [...arr1] copies the array completely
+
+
+= (name = "Anonymous") => "Hello " + name;
+->
+default parameters, if the function is called without providing an argument.
+
+const myFunc = () => {} 
+if there is no function body and only a return value
+const myFunc = () => "value";
+-> We can create arrow functions when we dont need to name these functions because we do not reuse them anywhere else. Especially when passing a function as an argument to another function
+if there is only one argument, parenthesis can be omitted
+const doubler = item => item * 2;
+otherwise
+const multiplier = (item, multi) => item * multi;
+multiplier(4, 2);
+
+Object.freeze() -> prevents data mutation
