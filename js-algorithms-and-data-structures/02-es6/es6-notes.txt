@@ -1,5 +1,31 @@
 es6 Notes
 
+defining functions within objects.
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+can remove the sayHello: function() {}
+
+object literals.
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+->
+const getMousePosition = (x, y) => ({ x, y });
+removes redundancy of x: x
+or
+const createPerson = (name, age, gender) => {
+  return { 
+    name, 
+    age, 
+    gender
+  };
+};
+
 ${person.name} -> template literals.
 const person = {
   name: "Zodiac Hasbro",
@@ -13,6 +39,21 @@ first, backticks are used ` not quotes '/"
 second, the string is multi-line in the code and in the output, no \n needed
 third, no concatenation operator, using ${} instead. can include ${a + b} operations as well. 
 
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"]
+};
+
+function makeList(arr) {
+  const failureItems = [];
+  for (let element in arr) {
+    failureItems.push(`<li class="text-warning">${arr[element]}</li>`);
+  }
+
+  return failureItems;
+}
+const failuresList = makeList(result.failure);
 
 const { name, age } = user; -> destructuring assignment. instead of 
 const name = user.name;
