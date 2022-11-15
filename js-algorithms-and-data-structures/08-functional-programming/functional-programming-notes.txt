@@ -1,3 +1,7 @@
+functional programming principles 
+- don't alter a variable or object, create new variables and objects and return them if need be from a function.
+- declare function parameters. any computation inside a function depends only on the args passed to the function, and not on any global object or variable
+
 callbacks
 functions that are slipped or passed into another function to decide the invocation of that function.
 
