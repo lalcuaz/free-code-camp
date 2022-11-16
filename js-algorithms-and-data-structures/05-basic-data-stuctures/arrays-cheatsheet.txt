@@ -12,7 +12,7 @@ in -> 'Alan' in users; -> checks if an obj has a specific property. returns true
 
 ...-> [...thisArray]; -> ... spread operator, allows us to copy all of an array's elements, in order. Copied array is unchanged.
 
-.slice(1, 2) -> copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. 2 params, first at which to begin extraction, second where to stop extraction. Extraction occurs up to but not including the second param. 
+.slice(1, 2) -> copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. 2 params, first at which to begin extraction, second where to stop extraction. Extraction occurs up to but not including the second param. if params are not included, the default is to start at the beginning of the array and through the end. An easy way to make a copy of the entire array.
 
 .splice(1, 2, 3, 4) -> removes any number of consecutive elements from anywhere in an array. takes up to 3 params, first param represents the index on the array from which to begin removing elements, second param indicates the number of elements to delete, .Also returns a new array containing the removed elements. The 3rd param onwards are elements added to the array from the first removed element.
 

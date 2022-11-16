@@ -35,3 +35,25 @@ Array.prototype.filter()
 - calls a function on each element of an array and returns a new array containing only the elements for which that function returns true.
 the callback func accepts 3 args. 1st is the current element being processed. the 2nd is the index of that element. the third is the array upon which the filter method was called.
 const usersUnder30 = users.filter(user => user.age < 30);
+
+.concat()
+- method for both strings and arrays. For arrays, it is called on an array then another is provided as the argument. It returns a new array and does not mutate either of the original arrays.
+- push mutates the original array while concat returns a new array and leaves the original array untouched. use concat for no mutations.
+
+.reduce()
+- array processing. iterates over each item in ana array and returns a single value achieved via a callback function this is called on each iteration.
+- callback accepts 4 args: the accumulator, which gets assigned the return value of the callback func from the previous iteration. the current element being processed. the index of that element. the array upon which reduce is called. 
+const users = [
+  { name: 'John', age: 34 },
+  { name: 'Amy', age: 20 },
+  { name: 'camperCat', age: 10 }
+];
+
+const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
+console.log(sumOfAges);
+
+const usersObj = users.reduce((obj, user) => {
+  obj[user.name] = user.age;
+  return obj;
+}, {});
+console.log(usersObj);
