@@ -25,3 +25,13 @@ const users = [
 
 const names = users.map(user => user.name);
 console.log(names);
+
+const ratings = watchList.map((item) => ({
+  title: item["Title"],
+  rating: item["imdbRating"],
+}));
+
+Array.prototype.filter()
+- calls a function on each element of an array and returns a new array containing only the elements for which that function returns true.
+the callback func accepts 3 args. 1st is the current element being processed. the 2nd is the index of that element. the third is the array upon which the filter method was called.
+const usersUnder30 = users.filter(user => user.age < 30);

@@ -133,15 +133,19 @@
       ];
 
       // Only change code below this line
-
-      const ratings = watchList.map((item) => ({
+      // use a combo of filter and map
+      // new array of objects with only title and rating
+      // only include objects where imdbRating is <=8.0
+      // rating values are saved as strings in the object.
+      let filteredList = watchList.filter((item) => item.imdbRating >= 8.0);
+      filteredList = filteredList.map((item) => ({
         title: item["Title"],
         rating: item["imdbRating"],
       }));
 
       // Only change code above this line
 
-      console.log(JSON.stringify(ratings));
+      console.log(filteredList);
     </script>
   </body>
 </html>
