@@ -57,3 +57,24 @@ const usersObj = users.reduce((obj, user) => {
   return obj;
 }, {});
 console.log(usersObj);
+
+.sort()
+- the sort method sorts the elements of an array according to the callback function. default sorting method is by string unicode point value so it is encourages to provide a callback function to specify how to sort the array items (normally called compareFunction(a, b)). sorted according to the return value of the compare function. return less than 0, a will come before b. greater than 0, b before a. equal to 0, remain unchanged.
+
+function ascendingOrder(arr) {
+  return arr.sort(function(a, b) {
+    return a - b;
+  });
+}
+
+ascendingOrder([1, 5, 2, 3, 4]);
+would return [1, 2, 3, 4, 5].
+
+function reverseAlpha(arr) {
+  return arr.sort(function(a, b) {
+    return a === b ? 0 : a < b ? 1 : -1;
+  });
+}
+
+reverseAlpha(['l', 'h', 'z', 'b', 's']);
+would return ['z', 's', 'l', 'h', 'b']
