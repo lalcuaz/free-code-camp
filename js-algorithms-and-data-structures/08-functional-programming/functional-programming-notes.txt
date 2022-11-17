@@ -89,4 +89,4 @@ const otherString = "How9are7you2today";
 const byDigits = otherString.split(/\d/);
 
 .join()
-- join the elements of an array together to create a astring. takes an argument for the delimiter that is used to separate the array elements int eh string. 
+- join the elements of an array together to create a astring. takes an argument for the delimiter that is used to separate the array elements int eh string.   
