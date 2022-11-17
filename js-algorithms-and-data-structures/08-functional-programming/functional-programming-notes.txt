@@ -60,7 +60,7 @@ console.log(usersObj);
 
 .sort()
 - the sort method sorts the elements of an array according to the callback function. default sorting method is by string unicode point value so it is encourages to provide a callback function to specify how to sort the array items (normally called compareFunction(a, b)). sorted according to the return value of the compare function. return less than 0, a will come before b. greater than 0, b before a. equal to 0, remain unchanged.
-
+- the sort method mutates the current array. to avoid this, first concat an empty array to the one being sorted. then sort.
 function ascendingOrder(arr) {
   return arr.sort(function(a, b) {
     return a - b;
@@ -72,9 +72,21 @@ would return [1, 2, 3, 4, 5].
 
 function reverseAlpha(arr) {
   return arr.sort(function(a, b) {
-    return a === b ? 0 : a < b ? 1 : -1;
+    return  
   });
 }
 
 reverseAlpha(['l', 'h', 'z', 'b', 's']);
 would return ['z', 's', 'l', 'h', 'b']
+
+.split()
+- splits a string into an array of strings, takes an arg for the delimiter, which can be a character to use to break up the string or a regular expression. if the delimiter is an empty string, you get an array of each character in the string. since strings are immutable, the split method makes it easier to work with them.
+
+const str = "Hello World";
+const bySpace = str.split(" ");
+
+const otherString = "How9are7you2today";
+const byDigits = otherString.split(/\d/);
+
+.join()
+- join the elements of an array together to create a astring. takes an argument for the delimiter that is used to separate the array elements int eh string. 

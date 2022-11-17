@@ -8,16 +8,13 @@
   </head>
   <body>
     <script>
-      function alphabeticalOrder(arr) {
+      function splitify(str) {
         // Only change code below this line
-        return arr.sort(function (a, b) {
-          return a === b ? 0 : a < b ? -1 : 1;
-        });
+        return str.split(/\W/);
         // Only change code above this line
       }
 
-      console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
-      //["a", "a", "c", "d", "g", "z"]
+      console.log(splitify("Hello World,I-am code"));
     </script>
   </body>
 </html>
