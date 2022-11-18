@@ -1,5 +1,32 @@
 es6 Notes
 
+Javascript promise
+- a promise to do something, usually asynchronously. when the task completes you either fulfill your promise or fail to do so. Promise is a constructor function, need the new keyword to create. takes a func as an arg with two parameters (resolve, reject). promises are most useful when you have a process that takes an unknown amount of time in your code (i.e something asynchronous), often a server request. It takes time and after it completes you usually want to do something with the response from the server.
+
+const myPromise = new Promise((resolve, reject) => {
+
+});
+
+- a promise has 3 states: pending, fulfilled, rejected. resolve is used when you want your promise to succeed, and reject when you want it to fail. used strings as the args but can be anything often objects.
+
+const myPromise = new Promise((resolve, reject) => {
+  if(condition here) {
+    resolve("Promise was fulfilled");
+  } else {
+    reject("Promise was rejected");
+  }
+});
+
+Handle a fulfilled promise with then
+-the then method is executed immediately after your promise fulfilled with resolve. result comes from the arg given to the resolve method.
+
+myPromise.then(result => {
+  
+});
+
+Handle a rejected promise with catch
+- the catch method is used when your promise has been rejected. executed immediately after a promise's reject method. error is the arg passed in the reject method.
+
 Module script
 -ES6 introduced a way to easily share code among js files. Exporting parts of a file and importing the parts you need -> a script needs to be created in the HTML doc. This script allows usage of the export and import features.
 
@@ -24,7 +51,17 @@ export { add };
 export { add, subtract };
 
 Export default
-- use if only one value is being exported from a file. 
+- use if only one value is being exported from a file. It is also used to create a fallback value for a file or module. since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. you also cannot use var, let or const
+
+export default function add(x, y) {
+  return x + y;
+}
+
+export default function(x, y) {
+  return x + y;
+}
+- one is a named func the other is an anonymous func.
+
 import
 - allows you to choose which parts of a file or module to load. after exporting, it needs to be imported
 
@@ -42,8 +79,13 @@ import * as myMathModule from "./math_functions.js";
 myMathModule.add(2,3);
 myMathModule.subtract(5,3);
 
+import a default export 
+- a different import syntax is used but is similar. add is a variable name for whatever the default export of the file is. you can use any name.
+
+import add from "./math_functions.js";
+
 getter/setter
--obtain and set the value of a property within an object. allows a user to do these functions without giving them direct access to the private variable
+- obtain and set the value of a property within an object. allows a user to do these functions without giving them direct access to the private variable
 get temperature() {
   return this._temperature = 5/9 * (this._temperature - 32);
 }
