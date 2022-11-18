@@ -1,25 +1,49 @@
 es6 Notes
 
-module script
-<script type="module" src="index.js"></script>
-a way to easily share code among js files. exporting parts of a file for use in one or more other files and importing the parts you need where you need them.
+Module script
+-ES6 introduced a way to easily share code among js files. Exporting parts of a file and importing the parts you need -> a script needs to be created in the HTML doc. This script allows usage of the export and import features.
 
+<script type="module" src="index.js"></script> -> module script
+
+export
+- if you want to use a function in a file, in several different js files. we need to export it
+
+the common way:
 export const add = (x, y) => {
   return x + y;
 }
-or
+
+another way:
 const add = (x, y) => {
   return x + y;
 }
 
 export { add };
 
-import allows you to choose which parts of a file or module to load.
-import { add } from './math_functions.js';
+-when a variable or func is exported, you can import it in another file and reuse it without having to rewrite the code. export multiple things by repeating the first example for each thing you want to export or placing them all in an export statement like in the second example.
+export { add, subtract };
 
+Export default
+- use if only one value is being exported from a file. 
+import
+- allows you to choose which parts of a file or module to load. after exporting, it needs to be imported
+
+import { add, subtract } from './math_functions.js';
+
+- will import add from the file stated and ignore the rest. The ./ tells the import to look for the specific file in the same folder as the current file.
+
+use * to import everything
+- import * imports all the contents of a file. the below example creates an obj called myMathModule which will contain all the exports from math)functions.js 
+
+import * as myMathModule from "./math_functions.js";
+
+-to use the functions:
+
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
 
 getter/setter
-obtain and set the value of a property within an object. allows a user to do these functions without giving them direct access to the private variable
+-obtain and set the value of a property within an object. allows a user to do these functions without giving them direct access to the private variable
 get temperature() {
   return this._temperature = 5/9 * (this._temperature - 32);
 }
