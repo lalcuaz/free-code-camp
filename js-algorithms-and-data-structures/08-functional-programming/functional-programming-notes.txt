@@ -89,4 +89,66 @@ const otherString = "How9are7you2today";
 const byDigits = otherString.split(/\d/);
 
 .join()
-- join the elements of an array together to create a astring. takes an argument for the delimiter that is used to separate the array elements int eh string.   
+- join the elements of an array together to create a astring. takes an argument for the delimiter that is used to separate the array elements into a string.   
+
+const arr = ["Hello", "World"];
+const str = arr.join(" ");
+
+.every()
+- checks if every element in an array passes a particular test. returns a Boolean value.
+
+const numbers = [1, 5, 8, 0, 10, 11];
+
+numbers.every(function(currentValue) {
+  return currentValue < 10;
+});
+
+- checks if every element in the numbers array is less than 10. returns false.
+
+function checkPositive(arr) {
+  return arr.every((num) => num > 0);
+
+}
+
+.some()
+-  checks if any element passes a particular test. returns a boolean value.
+
+function checkPositive(arr) {
+  return arr.some((num) => num > 0);
+}
+
+checkPositive([1, 2, 3, -4, 5]);
+
+arity
+- the arity of a function is the number of args it requires.
+
+Currying
+- currying a function means to convert a function of N arity into N functions of arity 1.
+it restructures a func so it takes one arg, then returns another func that takes the next arg and so on. useful in your program if you cant supply all the args to a func at one time.
+
+function unCurried(x, y) {
+  return x + y;
+}
+
+function curried(x) {
+  return function(y) {
+    return x + y;
+  }
+}
+const curried = x => y => x + y
+curried(1)(2)
+
+- you can save each func call into a variable which will hold the returned func reference that takes the next arg when its available.
+
+const funcForY = curried(1);
+console.log(funcForY(2)); // 3
+
+partial application
+- applying a few args to a func at a time and returning another func that is applied to more args.
+
+function impartial(x, y, z) {
+  return x + y + z;
+}
+
+const partialFn = impartial.bind(this, 1, 2);
+partialFn(10); // 13
