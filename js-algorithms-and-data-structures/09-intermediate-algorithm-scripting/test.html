@@ -8,51 +8,27 @@
   </head>
   <body>
     <script>
-      function whatIsInAName(collection, source) {
-        return collection.filter((item) => {
-          for (let property in source) {
-            if (
-              !item.hasOwnProperty(property) ||
-              item[property] !== source[property]
-            ) {
-              return false;
-            }
-          }
-          return true;
-          /*           for (let property in source) {
-            if (
-              item.hasOwnProperty(property) &&
-              item[property] === source[property]
-            ) {
-              status = true;
-            } else {
-              status = false;
-              return status;
-            } */
-          // }
-        });
+      /*function spinalCase(str) {
+        let arr = [];
+        let newStr = str.split(/[-_\s]/);
+        for (let item in newStr) {
+          console.log(newStr[item]);
+          arr = newStr.match(/ /);
+        }
+        return newStr;
+      } */
+      function spinalCase(str) {
+        return str
+          .match(/[A-Za-z][a-z]*/g)
+          .join("-")
+          .toLowerCase();
       }
 
-      console.log(
-        whatIsInAName([{ a: 1, b: 2, c: 3, d: 9999 }], { a: 1, b: 9999, c: 3 })
-      );
-
-      console.log(
-        whatIsInAName(
-          [
-            { first: "Romeo", last: "Montague" },
-            { first: "Mercutio", last: null },
-            { first: "Tybalt", last: "Capulet" },
-          ],
-          { last: "Capulet" }
-        )
-      );
-      console.log(
-        whatIsInAName(
-          [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
-          { apple: 1, bat: 2 }
-        )
-      );
+      console.log(spinalCase("This Is Spinal Tap"));
+      console.log(spinalCase("thisIsSpinalTap"));
+      console.log(spinalCase("The_Andy_Griffith_Show"));
+      console.log(spinalCase("Teletubbies say Eh-oh"));
+      console.log(spinalCase("AllThe-small Things"));
     </script>
   </body>
 </html>
