@@ -222,7 +222,6 @@ function howMany(...args) -> rest parameter, creates functions that take a varia
 it returns an unpacked array, it spreads the array.
 arr2 = [...arr1] copies the array completely
 
-
 = (name = "Anonymous") => "Hello " + name;
 ->
 default parameters, if the function is called without providing an argument.

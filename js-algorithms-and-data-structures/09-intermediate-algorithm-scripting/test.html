@@ -8,36 +8,11 @@
   </head>
   <body>
     <script>
-      /*Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
-      Note: You can return the array with its elements in any order
-
-      filter through arrays and return what is found in only one array.
-      use concat to the combine the two arrays
-      use filter to filter through and look for copies
-      current element being processed is compared through for loop, the index of that particular element is skipped.
-      return a new array of originals
-      */
-      function diffArray(arr1, arr2) {
-        const newArr = arr1.concat(arr2).filter((element, index, arr) => {
-          let pass = true;
-          for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === element && i !== index) {
-              pass = false;
-            }
-          }
-
-          return pass;
-        });
-        return newArr;
+      function destroyer(arr1, ...arr2) {
+        return arr1.filter((num) => !arr2.includes(num));
       }
 
-      console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
-      console.log(
-        diffArray(
-          ["andesite", "grass", "dirt", "pink wool", "dead shrub"],
-          ["diorite", "andesite", "grass", "dirt", "dead shrub"]
-        )
-      );
+      console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
     </script>
   </body>
 </html>
