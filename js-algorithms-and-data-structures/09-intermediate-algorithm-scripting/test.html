@@ -8,49 +8,19 @@
   </head>
   <body>
     <script>
-      // based pairs AT and CG
-      // input GCG, return [['g','c'], ['c','g'], ['g','c']]
-      // loop through each letter in the string
-      // use switch case based on the input to create different arrays.
-      /*  for (let i = 0; i < str.length; i++) {
-          switch (str[i]) {
-            case "A":
-              dna.push(["A", "T"]);
-              break;
-            case "T":
-              dna.push(["T", "A"]);
-              break;
-            case "C":
-              dna.push(["C", "G"]);
-              break;
-            case "G":
-              dna.push(["G", "C"]);
-              break;
-          }
-        } */
-      function pairElement(str) {
-        const dna = [];
-        for (let i = 0; i < str.length; i++) {
-          switch (str[i]) {
-            case "A":
-              dna.push(["A", "T"]);
-              break;
-            case "T":
-              dna.push(["T", "A"]);
-              break;
-            case "C":
-              dna.push(["C", "G"]);
-              break;
-            case "G":
-              dna.push(["G", "C"]);
-              break;
+      // find the missing letter in the passed letter range and return it
+      // if all letters are present return undefined
+      function fearNotLetter(str) {
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+        for (let i = alphabet.indexOf(str[0]); i < alphabet.length; i++) {
+          if (!str.includes(alphabet[i])) {
+            return alphabet[i];
           }
         }
-
-        return dna;
+        return undefined;
       }
-
-      console.log(pairElement("GCG"));
+      console.log(fearNotLetter("abce"));
     </script>
   </body>
 </html>
