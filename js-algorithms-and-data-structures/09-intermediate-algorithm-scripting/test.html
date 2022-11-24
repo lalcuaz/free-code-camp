@@ -8,18 +8,26 @@
   </head>
   <body>
     <script>
-      // word begins with consonant/s, move it to the end (all consonants in a row) of the word and add ay
-      // word begins with vowel, add way at the end
-      // use str.substring(index1, index2); to extract parts of the string
+      //first is the sentence to run the func on
+      //second is the word to replace
+      //third is the word to replace with
+      //if the first letter of before is capitalized, so is the first letter of after.
+      function myReplace(str, before, after) {
+        const replaceStr =
+          (/^[A-Z]/.test(before)
+            ? after[0].toUpperCase()
+            : after[0].toLowerCase()) + after.slice(1);
 
-      function translatePigLatin(str) {
-        if (/[aeiou]/.test(str[0])) return str.concat("way");
-        const consCluster = str.match(/^[^aeiou]*/);
-        return str.substring(consCluster[0].length).concat(consCluster + "ay");
+        return str.replace(before, replaceStr);
       }
-      console.log(translatePigLatin("glove"));
-      console.log(translatePigLatin("consonant"));
-      console.log(translatePigLatin("eight"));
+
+      console.log(
+        myReplace(
+          "A quick brown fox jumped over the lazy dog",
+          "Jumped",
+          "leaped"
+        )
+      );
     </script>
   </body>
 </html>
