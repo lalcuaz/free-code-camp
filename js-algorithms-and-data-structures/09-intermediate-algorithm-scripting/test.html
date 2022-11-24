@@ -8,27 +8,19 @@
   </head>
   <body>
     <script>
-      /*function spinalCase(str) {
-        let arr = [];
-        let newStr = str.split(/[-_\s]/);
-        for (let item in newStr) {
-          console.log(newStr[item]);
-          arr = newStr.match(/ /);
-        }
-        return newStr;
-      } */
-      function spinalCase(str) {
-        return str
-          .match(/[A-Za-z][a-z]*/g)
-          .join("-")
-          .toLowerCase();
-      }
+      // word begins with consonant/s, move it to the end (all consonants in a row) of the word and add ay
+      // word begins with vowel, add way at the end
+      // use str.substring(index1, index2); to extract parts of the string
 
-      console.log(spinalCase("This Is Spinal Tap"));
-      console.log(spinalCase("thisIsSpinalTap"));
-      console.log(spinalCase("The_Andy_Griffith_Show"));
-      console.log(spinalCase("Teletubbies say Eh-oh"));
-      console.log(spinalCase("AllThe-small Things"));
+      function translatePigLatin(str) {
+        if (/[aeiou]/.test(str[0])) return str.concat("way");
+        const consCluster = str.match(/^[^aeiou]*/);
+        return consCluster;
+        return str.substring(consCluster.length).concat(consCluster + "ay");
+      }
+      console.log(translatePigLatin("glove"));
+      console.log(translatePigLatin("consonant"));
+      console.log(translatePigLatin("eight"));
     </script>
   </body>
 </html>
