@@ -2,7 +2,7 @@ Arrays/objects
 
 Object.keys() -> generates an array of strings which contains all the keys stored in an object. no specific order to the entries in the array.
 
-for in -> for (let user in users) {} -> iterate through all the keys within an obj NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+for in -> for (let user in users) {} -> iterate through all the keys within an obj NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key. dont use for arrays, it is meant to iterate through an objects properties
 
 .hasOwnProperty() -> checks if an obj has a specific property. returns true or false
 

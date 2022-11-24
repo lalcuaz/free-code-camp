@@ -9,7 +9,7 @@ prototype property from the specified constructor.
 
 duck.constructor === Bird; -> returns true or false. special constructor property located on object instances. A reference to the constructor function that created the instance
 
-for (let property in beagle) -> iterate over all of the object's properties
+for (let property in beagle) -> iterate over all of the object's properties dont use for arrays
 
 Bird.prototype.numLegs = 2; -> when there are duplicate variables, for ex numLegs for every bird, use the prototype of Bird. properties in the prototype are shared among ALL instances (like a global variable).
 

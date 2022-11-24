@@ -25,3 +25,31 @@ function multiply(arr, n) {
     return multiply(arr, n-1) * arr[n - 1];
   }
 }
+
+Switch
+- many options to choose from: use a switch statement. Statements are executed from the first matched case value until a break is encountered. case values are tested with ===
+
+switch(lowercaseLetter) {
+    case 'a':
+      console.log("A");
+      break;
+    case 'b':
+      console.log("B");
+      break;
+    default:
+      defaultStatement;
+      break;
+}
+
+- default can be used as a if no matching case statements situation occurs.
+- if the break statement is ommited, following case statements are executed until a break is encountered. multiple inputs with the same output can be represented similarly as well.
+
+switch (val) {
+  case 1:
+  case 2:
+  case 3:
+    result = "1, 2, or 3";
+    break;
+  case 4:
+    result = '4 alone';
+}

@@ -8,26 +8,49 @@
   </head>
   <body>
     <script>
-      //first is the sentence to run the func on
-      //second is the word to replace
-      //third is the word to replace with
-      //if the first letter of before is capitalized, so is the first letter of after.
-      function myReplace(str, before, after) {
-        const replaceStr =
-          (/^[A-Z]/.test(before)
-            ? after[0].toUpperCase()
-            : after[0].toLowerCase()) + after.slice(1);
+      // based pairs AT and CG
+      // input GCG, return [['g','c'], ['c','g'], ['g','c']]
+      // loop through each letter in the string
+      // use switch case based on the input to create different arrays.
+      /*  for (let i = 0; i < str.length; i++) {
+          switch (str[i]) {
+            case "A":
+              dna.push(["A", "T"]);
+              break;
+            case "T":
+              dna.push(["T", "A"]);
+              break;
+            case "C":
+              dna.push(["C", "G"]);
+              break;
+            case "G":
+              dna.push(["G", "C"]);
+              break;
+          }
+        } */
+      function pairElement(str) {
+        const dna = [];
+        for (let i = 0; i < str.length; i++) {
+          switch (str[i]) {
+            case "A":
+              dna.push(["A", "T"]);
+              break;
+            case "T":
+              dna.push(["T", "A"]);
+              break;
+            case "C":
+              dna.push(["C", "G"]);
+              break;
+            case "G":
+              dna.push(["G", "C"]);
+              break;
+          }
+        }
 
-        return str.replace(before, replaceStr);
+        return dna;
       }
 
-      console.log(
-        myReplace(
-          "A quick brown fox jumped over the lazy dog",
-          "Jumped",
-          "leaped"
-        )
-      );
+      console.log(pairElement("GCG"));
     </script>
   </body>
 </html>
