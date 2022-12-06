@@ -1,5 +1,8 @@
 function binaryAgent(str) {
-  return str;
+  return str
+    .split(" ")
+    .map((item) => (item = String.fromCharCode(parseInt(item, 2))))
+    .join("");
 }
 
 binaryAgent(
