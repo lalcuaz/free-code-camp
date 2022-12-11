@@ -1,5 +1,8 @@
 function truthCheck(collection, pre) {
-  return pre;
+  return collection.every((element) => {
+    console.log(element[pre]);
+    return element[pre];
+  });
 }
 
 truthCheck(
