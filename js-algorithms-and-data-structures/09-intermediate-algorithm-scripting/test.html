@@ -8,11 +8,17 @@
   </head>
   <body>
     <script>
-      function addTogether() {
-        return false;
-      }
+      const Person = function (firstAndLast) {
+        // Only change code below this line
+        // Complete the method below and implement the others similarly
+        this.getFullName = function () {
+          return "";
+        };
+        return firstAndLast;
+      };
 
-      addTogether(2, 3);
+      const bob = new Person("Bob Ross");
+      bob.getFullName();
     </script>
   </body>
 </html>
