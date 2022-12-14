@@ -1,0 +1,3 @@
+ctrl-d select identical words in different lines
+
+shift-d delete line, place deleted in copyboard
