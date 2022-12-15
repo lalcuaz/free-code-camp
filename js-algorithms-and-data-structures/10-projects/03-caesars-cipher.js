@@ -1,40 +1,57 @@
+/*a caesar cipher, also known as a
+      shift cipher
+      the meanings of the letters are shifted
+      by some set amount
+      ROT13 cipher, the values of letters are shifted by 13 places. A -> N B -> O
+      function takes a rot13 encoded string as
+      an input and returns a decoded string
+      all letters uppercase, no changes to
+      non-alphabetic characters*/
 function rot13(str) {
-  const alphabet = {
-    0: "A",
-    1: "B",
-    2: "C",
-    3: "D",
-    4: "E",
-    5: "F",
-    6: "G",
-    7: "H",
-    8: "I",
-    9: "J",
-    10: "K",
-    11: "L",
-    12: "M",
-    13: "N",
-    14: "O",
-    15: "P",
-    16: "Q",
-    17: "R",
-    18: "S",
-    19: "T",
-    20: "U",
-    21: "V",
-    22: "W",
-    23: "X",
-    24: "Y",
-    25: "Z",
-  };
+  const alphabetArr = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+
   let decodedStr = "";
+  let alphabetIndex = 0;
+  // const max =
   for (let i = 0; i < str.length; i++) {
-    if (str[i].test(/[A-Z]/)) {
+    if (str[i].match(/[A-Z]/)) {
+      alphabetIndex = alphabetArr.indexOf(str[i]) - 13;
+      if (alphabetIndex < 0) {
+        alphabetIndex += 26;
+      }
+      decodedStr += alphabetArr[alphabetIndex];
     } else {
       decodedStr += str[i];
     }
   }
-  return str;
+  return decodedStr;
 }
 
-rot13("SERR PBQR PNZC");
+console.log(rot13("SERR PBQR PNZC"));
