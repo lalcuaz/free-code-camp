@@ -8,29 +8,22 @@
   </head>
   <body>
     <script>
-      /* return true if the string looks like a
-      valid US phone number
-      the function has to accept all valid formats
-      for US numbers. 
-      the area code is required, if country
-      code is provide, confirm that the code
-      is 1.*/
-      // separate a string into numbers
-      // count length of string
-      // a number has 10 digits
-      // it has 11 if the country code (1)
-      // is included
-      // if there are 10 digits total
-      // or if there are 11 digits but
-      // the starting number is one
-      function telephoneCheck(str) {
-        console.log(str.split(/[-]/));
-        if (str.test(/[]/)) {
-        }
-        return true;
+      function checkCashRegister(price, cash, cid) {
+        let change;
+        return change;
       }
 
-      telephoneCheck("555-555-5555");
+      checkCashRegister(19.5, 20, [
+        ["PENNY", 1.01],
+        ["NICKEL", 2.05],
+        ["DIME", 3.1],
+        ["QUARTER", 4.25],
+        ["ONE", 90],
+        ["FIVE", 55],
+        ["TEN", 20],
+        ["TWENTY", 60],
+        ["ONE HUNDRED", 100],
+      ]);
     </script>
   </body>
 </html>

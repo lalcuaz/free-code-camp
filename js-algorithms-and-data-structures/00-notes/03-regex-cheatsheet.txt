@@ -51,7 +51,7 @@ i -> /ignorecase/i -> a flag, i flag ignores cases
 
 | -> /yes|no/ -> OR operator, match yes or no will return true or false
 
-.test() -> takes the regex and applies it to a string and returns true or false. the regex is used as a parameter
+.test() -> takes the regex and applies it to a string and returns true or false. the string is used as the parameter
 
 
                 
