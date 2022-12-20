@@ -33,39 +33,42 @@
       //highest to lowest
       //cid length is 9
       function checkCashRegister(price, cash, cid) {
-        const cashValue = {
-          "ONE HUNDRED": 100,
-          TWENTY: 20,
-          TEN: 10,
-          FIVE: 5,
-          ONE: 1,
-          QUARTER: 0.25,
-          DIME: 0.1,
-          NICKEL: 0.05,
-          PENNY: 0.01,
-        };
-        console.log(cashValue.cid[8][0]);
+        const cashValue = [0.01, 0.05, 0.1, 0.25, 1, 5, 10, 20, 100];
+        let statement = { status: "PROCESSING", change: [] };
+        let changeArray = [];
+        let changeAmount = 0;
         let change = cash - price;
-        for (let i = cid.length - 1; i >= 0; i--) {
-          for (let element in cashValue) {
+        for (let i = cid.length - 1; i >= 0, change !== 0; i--) {
+          if (change / cashValue[i] >= 1) {
+            changeAmount = Math.floor(change / cashValue[i]);
+            change -= cashValue[i] * changeAmount;
+            changeArray.push([cid[i][0], changeAmount * cashValue[i]]);
+            statement.change = changeArray;
           }
           console.log(i);
-          console.log(cid[i]);
+          console.log(cid[i][0]);
+        }
+        console.log(change);
+        if (change === 0) {
+          statement.status = "OPEN";
+          return statement;
         }
         return console.log("end");
       }
       // {status: "OPEN", change: [["QUARTER", 0.5]]}
-      checkCashRegister(19.5, 20, [
-        ["PENNY", 1.01],
-        ["NICKEL", 2.05],
-        ["DIME", 3.1],
-        ["QUARTER", 4.25],
-        ["ONE", 90],
-        ["FIVE", 55],
-        ["TEN", 20],
-        ["TWENTY", 60],
-        ["ONE HUNDRED", 100],
-      ]);
+      console.log(
+        checkCashRegister(19.5, 20, [
+          ["PENNY", 1.01],
+          ["NICKEL", 2.05],
+          ["DIME", 3.1],
+          ["QUARTER", 4.25],
+          ["ONE", 90],
+          ["FIVE", 55],
+          ["TEN", 20],
+          ["TWENTY", 60],
+          ["ONE HUNDRED", 100],
+        ])
+      );
       //{status: "INSUFFICIENT_FUNDS", change: []}
       // checkCashRegister(19.5, 20, [
       //   ["PENNY", 0.01],

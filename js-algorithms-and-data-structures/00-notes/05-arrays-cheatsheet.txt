@@ -16,7 +16,7 @@ in -> 'Alan' in users; -> checks if an obj has a specific property. returns true
 
 .splice(1, 2, 3, 4) -> removes any number of consecutive elements from anywhere in an array. takes up to 3 params, first param represents the index on the array from which to begin removing elements, second param indicates the number of elements to delete, .Also returns a new array containing the removed elements. The 3rd param onwards are elements added to the array from the first removed element.
 
-.shift() -> opposite of shift, removes an element from the beginning of an array, no params, one element at a time.
+.shift() -> opposite of unshift, removes an element from the beginning of an array, no params, one element at a time.
 
 .pop() -> opposite of push, removes an element from the end of an array, no params, one element at a time.
 
