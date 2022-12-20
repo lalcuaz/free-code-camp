@@ -30,13 +30,13 @@ function checkCashRegister(price, cash, cid) {
       Math.round(total * 100 + registerCash[1] * 100) / 100,
     0
   );
-  console.log(cashTotal);
+
   let changeDue = cash - price;
-  let statement = { status: "PROCESSING", change: [] };
+  let statement = { status: "INSUFFICIENT_FUNDS", change: [] };
 
   for (
     let i = cid.length - 1;
-    i >= 0 && changeDue != 0 && cashTotal >= changeDue;
+    i >= 0 && changeDue !== 0 && cashTotal >= changeDue;
     i--
   ) {
     if (changeDue / cashValue[i] >= 1) {
@@ -51,6 +51,7 @@ function checkCashRegister(price, cash, cid) {
       cashTotal -= cashGiven;
     }
   }
+
   if (changeDue === 0 && cashTotal === 0) {
     statement.status = "CLOSED";
     statement.change = cid;
@@ -59,10 +60,8 @@ function checkCashRegister(price, cash, cid) {
     statement.status = "OPEN";
     statement.change = changeArray;
     return statement;
-  } else {
-    statement.status = "INSUFFICIENT_FUNDS";
-    return statement;
   }
+  return statement;
 }
 // {status: "OPEN", change: [["QUARTER", 0.5]]}
 // console.log(
