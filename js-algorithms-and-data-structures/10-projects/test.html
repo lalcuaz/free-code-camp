@@ -8,11 +8,25 @@
   </head>
   <body>
     <script>
+      /*cash register drawer
+      cid -> cash-in-drawer, a 2d array listing 
+      available currency
+      should always return an object with a status
+      key and a change key
+      return {staus: "CLOSED", change:[...]}
+      with cid as the value for the key change if
+      it is equal to the change due
+      othewise
+      return {status: "OPEN", change: [...]}
+      with the change due in coins and bills, 
+      sorted in the highest to lowest order, 
+      as the value of the change key
+      */
       function checkCashRegister(price, cash, cid) {
         let change;
         return change;
       }
-
+      // {status: "OPEN", change: [["QUARTER", 0.5]]}
       checkCashRegister(19.5, 20, [
         ["PENNY", 1.01],
         ["NICKEL", 2.05],
