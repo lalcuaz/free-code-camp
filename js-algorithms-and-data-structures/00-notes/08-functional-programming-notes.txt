@@ -42,7 +42,8 @@ const usersUnder30 = users.filter(user => user.age < 30);
 
 .reduce()
 - array processing. iterates over each item in ana array and returns a single value achieved via a callback function this is called on each iteration.
-- callback accepts 4 args: the accumulator, which gets assigned the return value of the callback func from the previous iteration. the current element being processed. the index of that element. the array upon which reduce is called. 
+- callback accepts 4 args: the accumulator, which gets assigned the return value of the callback func from the previous iteration. the current element being processed. the index of that element. the array upon which reduce is called.
+- in addition to the callback func, there is an additional parameter which takes an initial value for the accumulator. if not used, the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator. 
 const users = [
   { name: 'John', age: 34 },
   { name: 'Amy', age: 20 },
