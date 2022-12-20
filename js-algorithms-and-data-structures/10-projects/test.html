@@ -9,22 +9,50 @@
   <body>
     <script>
       /*cash register drawer
-      cid -> cash-in-drawer, a 2d array listing 
+      cid -> cash-in-drawer, a 2d array listing
       available currency
       should always return an object with a status
       key and a change key
+      return {status: "INSUFFICIENT_FUNDS", change: []}
+      if cid is less than the change due or if
+      you cannot return the exact change
       return {staus: "CLOSED", change:[...]}
       with cid as the value for the key change if
       it is equal to the change due
       othewise
       return {status: "OPEN", change: [...]}
-      with the change due in coins and bills, 
-      sorted in the highest to lowest order, 
+      with the change due in coins and bills,
+      sorted in the highest to lowest order,
       as the value of the change key
       */
+      //if cid doesnt have enough change or cant
+      //return the correct amount, status: insufficient
+      //if cid is equal to the change, status: closed
+      //if cid has enough and can return exact amount
+      //return status:open, with change sorted
+      //highest to lowest
+      //cid length is 9
       function checkCashRegister(price, cash, cid) {
-        let change;
-        return change;
+        const cashValue = {
+          "ONE HUNDRED": 100,
+          TWENTY: 20,
+          TEN: 10,
+          FIVE: 5,
+          ONE: 1,
+          QUARTER: 0.25,
+          DIME: 0.1,
+          NICKEL: 0.05,
+          PENNY: 0.01,
+        };
+        console.log(cashValue.cid[8][0]);
+        let change = cash - price;
+        for (let i = cid.length - 1; i >= 0; i--) {
+          for (let element in cashValue) {
+          }
+          console.log(i);
+          console.log(cid[i]);
+        }
+        return console.log("end");
       }
       // {status: "OPEN", change: [["QUARTER", 0.5]]}
       checkCashRegister(19.5, 20, [
@@ -38,6 +66,30 @@
         ["TWENTY", 60],
         ["ONE HUNDRED", 100],
       ]);
+      //{status: "INSUFFICIENT_FUNDS", change: []}
+      // checkCashRegister(19.5, 20, [
+      //   ["PENNY", 0.01],
+      //   ["NICKEL", 0],
+      //   ["DIME", 0],
+      //   ["QUARTER", 0],
+      //   ["ONE", 0],
+      //   ["FIVE", 0],
+      //   ["TEN", 0],
+      //   ["TWENTY", 0],
+      //   ["ONE HUNDRED", 0],
+      // ]);
+      //{status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}
+      // checkCashRegister(19.5, 20, [
+      //   ["PENNY", 0.5],
+      //   ["NICKEL", 0],
+      //   ["DIME", 0],
+      //   ["QUARTER", 0],
+      //   ["ONE", 0],
+      //   ["FIVE", 0],
+      //   ["TEN", 0],
+      //   ["TWENTY", 0],
+      //   ["ONE HUNDRED", 0],
+      // ]);
     </script>
   </body>
 </html>
