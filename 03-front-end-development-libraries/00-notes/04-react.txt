@@ -50,3 +50,14 @@ JSX self-closing tags
 - self closing html tags like <br> must always be written as <br />
 - elements can self closed as <div /> or closed as <div></div>
   - the first has no way to include anything inside
+
+React Components
+
+- everything in react is a component
+(2 ways to make)
+  - use a js func. defining a component in this way creates a stateless functional component
+  - stateless c -> one that can receive data and render it, but does not manage or track changes to that data.
+  - write a js func that returns jsx or null.
+  - react requires func names to begin with a 
+  capital letter.
+  
