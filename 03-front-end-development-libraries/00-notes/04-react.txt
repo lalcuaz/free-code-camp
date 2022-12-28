@@ -1,0 +1,52 @@
+React
+- open source view library created by facebook
+- great tool to render the UI of modern web
+applications.
+- allows you to write HTML directly within js.
+- to write js directly within js, include
+{ 'this is treated as JavaScript code' }
+- ReactDOM.render(JSX, document.getElementById('root'))
+  - underneath, this function call is what places
+  jsx into react's own lightweight representation
+  of the DOM to optimize updating only specific 
+  parts of the actual DOM
+
+JSX
+
+-
+const JSX = <div></div>;
+
+- nested jsx must return a single element
+the parent element would wrap all of the 
+other levels of nested elements
+valid:
+<div>
+  <p>Paragraph One</p>
+  <p>Paragraph Two</p>
+  <p>Paragraph Three</p>
+</div>
+invalid:
+<p>Paragraph One</p>
+<p>Paragraph Two</p>
+<p>Paragraph Three</p>
+
+JSX Comments
+
+-   {/* comment */}
+
+JSX render elements to the DOM
+
+- use ReactDOM.render(componentToRender, targetNode)
+
+JSX naming
+
+- naming convention for all HTML attributes and
+event references in JSX become camelCase
+onclick -> onClick
+onchange -> onChange
+
+JSX self-closing tags
+
+- self closing html tags like <br> must always be written as <br />
+- elements can self closed as <div /> or closed as <div></div>
+  - the first has no way to include anything inside
