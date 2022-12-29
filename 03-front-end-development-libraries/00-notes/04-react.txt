@@ -60,4 +60,43 @@ React Components
   - write a js func that returns jsx or null.
   - react requires func names to begin with a 
   capital letter.
+-2nd way
+  - ES6 class syntax
+
+class Kitten extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h1>Hi</h1>
+    );
+  }
+}
+  - extends React.Component gives access to react
+  features such as local state and lifecycle hooks
+  - it is best practice to call a component's 
+  constructor with super and pass props to both. 
+    - this makes sure the component is initialized
+    properly
+    - super calls the constructor of the parent class, in this case React.Component
+
+Composition
+
+  - can compose multiple react components with 
+  composition
+  - can create an parent component which renders other components as children
+    - to render a component as a child, you include the component name written as a custom HTML tag.
+    
+return (
+ <App>
+  <Navbar />
+  <Dashboard />
+  <Footer />
+ </App>
+)
+- see also ex09 and ex10 for nested components
+
+
   
