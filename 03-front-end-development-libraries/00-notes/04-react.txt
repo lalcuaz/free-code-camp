@@ -98,5 +98,32 @@ return (
 )
 - see also ex09 and ex10 for nested components
 
+Render a class component to the DOM
 
+- ReactDOM.render(componentToRender, targetNode)
+  - different to JSX (you pass in the name of the element you want to render), use the same syntax as if rendering a nested component
+  ReactDOM.render(<Component />, targetNode)
+  - use for both ES6 class components and functional components
   
+  Pass Props to a Stateless Functional Component(14)
+  - you can pass props(properties) to child components
+  <App>
+  <Welcome user='Mark' />
+  </App>
+  - Welcome is a stateless functional component
+  - since it is a ^, it has access to this value
+  like so
+  const Welcome = (props) => <h1>Hello, {props.user}!</h1>
+  - this is different with class components
+  
+  Pass an Array as props (ex14)
+  - to pass an array to a JSX element, it must be treated as js and wrapped in curly braces
+  <ParentComponent>
+  <ChildComponent colors={["green", "blue", "red"]} />
+  </ParentComponent>
+
+  - the child element now has access to the array property colors.
+  - array methods such as join() can be used when accessing the property
+  const ChildComponent = (props) => <p>{props.colors.join(', ')}</p>
+
+  - this results in a comma separated string
