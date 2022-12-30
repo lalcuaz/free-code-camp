@@ -127,3 +127,11 @@ Render a class component to the DOM
   const ChildComponent = (props) => <p>{props.colors.join(', ')}</p>
 
   - this results in a comma separated string
+
+Default Props (ex16)
+  - assign default props to a component as a property on the component itself
+  - MyComponent.defaultProps = { location: 'San Francisco' }
+  - React assigns default props if props are undefined, but if you pass null as the value for a prop, it will remain null.
+
+
+
