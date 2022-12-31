@@ -159,3 +159,11 @@ What is a stateless functional component (ex20)
     - a common pattern is to try to minimize statefulness and create stateless functional components wherever possible.
     - helps contain your state management to a specific area of your application 
     improves development and maintenance of your app by making it easier to follow how changes to state affect its behaviour.
+
+Stateful component (ex21)
+  - state consists of any data your application needs to know about, that can change over time.
+  - create state in a React component by declaring a state property on the component class in its constructor.
+    - this initializes the component with state when it is created.
+  - the state property must be set to a js object.
+this.state = {}
+  - You must create a class component extending React.Component in order to create state like this.
