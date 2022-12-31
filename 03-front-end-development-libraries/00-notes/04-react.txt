@@ -133,5 +133,29 @@ Default Props (ex16)
   - MyComponent.defaultProps = { location: 'San Francisco' }
   - React assigns default props if props are undefined, but if you pass null as the value for a prop, it will remain null.
 
+Use PropTypes to Define the props you expect(ex18)
+  - you can set propTypes on your component to require the data to be of type array
+    - this will throw a useful warning when the data is of any other type.
+  - considered best practice to set propTypes when you know the type of a prop ahead of time.
+  - propTypes are defined the same way as defaultProps
 
+MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
 
+  - PropTypes.func checks that handleClick is a function.
+  - adding isRequired tells React that handleClick is a requried property for that component.
+    - a warning will show if that prop isn't provided.
+  - func represents function, bool represents boolean (only 2 of 7 js primitive types that are spelled unusally)
+  - PropTypes is imported independently from React
+import PropTypes from 'prop-types'; 
+
+Access Props Using this.props 
+  - anytime you refer to a class component within itself, you use the this keyword.
+  - if an ES6 class component has a prop called data, you write {this.props.data} in JSX
+
+What is a stateless functional component (ex20)
+  - any function you write which accepts props and returns JSX.
+  - A stateless component is a class that extends React.Component but does not use internal state
+  - a stateful component is a class component that does maintain its own internal state. you may see them refered to as components or React component
+    - a common pattern is to try to minimize statefulness and create stateless functional components wherever possible.
+    - helps contain your state management to a specific area of your application 
+    improves development and maintenance of your app by making it easier to follow how changes to state affect its behaviour.
