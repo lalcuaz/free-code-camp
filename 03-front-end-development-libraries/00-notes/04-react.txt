@@ -167,3 +167,30 @@ Stateful component (ex21)
   - the state property must be set to a js object.
 this.state = {}
   - You must create a class component extending React.Component in order to create state like this.
+  - ex22
+    - allows you to track important data in your app and render a UI in response to changes in this data.
+    - React uses a virtual DOM, to keep track of changes behind the scenes.
+    - no other components are aware of its state, it is completely encapsulated unless you pass state data to a child component as props.
+
+Render State in the User Interface another way (ex23)
+  - in the render() before the return statement, we can write js directly.
+    - can declare funcs, access data from state or props, perform computations on this data, etc.
+render() {
+    const name = this.state.name;
+    return (
+      <div>
+        <h1>
+          {name}
+        </h1>
+
+Set State with this.setState(24)
+  - method for updating component state, this.setState() called within the component class
+    - passing in an obj with key-value pairs
+  - the keys are the state properties, and the values are the updated state data.
+
+this.setState({
+  username: 'Lewis'
+});
+  - React expects us to never modify state directly and always use this.setState() instead.
+  - React may batch multiple state updates in order to improve peformance. state updates through setState method can be asynchronous.
+  - there is alternative syntax for the setState method which provides a way around the problem
