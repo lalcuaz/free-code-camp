@@ -1,0 +1,223 @@
+React
+- open source view library created by facebook
+- great tool to render the UI of modern web
+applications.
+- allows you to write HTML directly within js.
+- to write js directly within js, include
+{ 'this is treated as JavaScript code' }
+- ReactDOM.render(JSX, document.getElementById('root'))
+  - underneath, this function call is what places
+  jsx into react's own lightweight representation
+  of the DOM to optimize updating only specific 
+  parts of the actual DOM
+
+JSX
+
+-
+const JSX = <div></div>;
+
+- nested jsx must return a single element
+the parent element would wrap all of the 
+other levels of nested elements
+valid:
+<div>
+  <p>Paragraph One</p>
+  <p>Paragraph Two</p>
+  <p>Paragraph Three</p>
+</div>
+invalid:
+<p>Paragraph One</p>
+<p>Paragraph Two</p>
+<p>Paragraph Three</p>
+
+JSX Comments
+
+-   {/* comment */}
+
+JSX render elements to the DOM
+
+- use ReactDOM.render(componentToRender, targetNode)
+
+JSX naming
+
+- naming convention for all HTML attributes and
+event references in JSX become camelCase
+onclick -> onClick
+onchange -> onChange
+
+JSX self-closing tags
+
+- self closing html tags like <br> must always be written as <br />
+- elements can self closed as <div /> or closed as <div></div>
+  - the first has no way to include anything inside
+
+React Components
+
+- everything in react is a component
+(2 ways to make)
+  - use a js func. defining a component in this way creates a stateless functional component
+  - stateless c -> one that can receive data and render it, but does not manage or track changes to that data.
+  - write a js func that returns jsx or null.
+  - react requires func names to begin with a 
+  capital letter.
+-2nd way
+  - ES6 class syntax
+
+class Kitten extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h1>Hi</h1>
+    );
+  }
+}
+  - extends React.Component gives access to react
+  features such as local state and lifecycle hooks
+  - it is best practice to call a component's 
+  constructor with super and pass props to both. 
+    - this makes sure the component is initialized
+    properly
+    - super calls the constructor of the parent class, in this case React.Component
+
+Composition
+
+  - can compose multiple react components with 
+  composition
+  - can create an parent component which renders other components as children
+    - to render a component as a child, you include the component name written as a custom HTML tag.
+    
+return (
+ <App>
+  <Navbar />
+  <Dashboard />
+  <Footer />
+ </App>
+)
+- see also ex09 and ex10 for nested components
+
+Render a class component to the DOM
+
+- ReactDOM.render(componentToRender, targetNode)
+  - different to JSX (you pass in the name of the element you want to render), use the same syntax as if rendering a nested component
+  ReactDOM.render(<Component />, targetNode)
+  - use for both ES6 class components and functional components
+  
+  Pass Props to a Stateless Functional Component(14)
+  - you can pass props(properties) to child components
+  <App>
+  <Welcome user='Mark' />
+  </App>
+  - Welcome is a stateless functional component
+  - since it is a ^, it has access to this value
+  like so
+  const Welcome = (props) => <h1>Hello, {props.user}!</h1>
+  - this is different with class components
+  
+  Pass an Array as props (ex14)
+  - to pass an array to a JSX element, it must be treated as js and wrapped in curly braces
+  <ParentComponent>
+  <ChildComponent colors={["green", "blue", "red"]} />
+  </ParentComponent>
+
+  - the child element now has access to the array property colors.
+  - array methods such as join() can be used when accessing the property
+  const ChildComponent = (props) => <p>{props.colors.join(', ')}</p>
+
+  - this results in a comma separated string
+
+Default Props (ex16)
+  - assign default props to a component as a property on the component itself
+  - MyComponent.defaultProps = { location: 'San Francisco' }
+  - React assigns default props if props are undefined, but if you pass null as the value for a prop, it will remain null.
+
+Use PropTypes to Define the props you expect(ex18)
+  - you can set propTypes on your component to require the data to be of type array
+    - this will throw a useful warning when the data is of any other type.
+  - considered best practice to set propTypes when you know the type of a prop ahead of time.
+  - propTypes are defined the same way as defaultProps
+
+MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+
+  - PropTypes.func checks that handleClick is a function.
+  - adding isRequired tells React that handleClick is a requried property for that component.
+    - a warning will show if that prop isn't provided.
+  - func represents function, bool represents boolean (only 2 of 7 js primitive types that are spelled unusally)
+  - PropTypes is imported independently from React
+import PropTypes from 'prop-types'; 
+
+Access Props Using this.props 
+  - anytime you refer to a class component within itself, you use the this keyword.
+  - if an ES6 class component has a prop called data, you write {this.props.data} in JSX
+
+What is a stateless functional component (ex20)
+  - any function you write which accepts props and returns JSX.
+  - A stateless component is a class that extends React.Component but does not use internal state
+  - a stateful component is a class component that does maintain its own internal state. you may see them refered to as components or React component
+    - a common pattern is to try to minimize statefulness and create stateless functional components wherever possible.
+    - helps contain your state management to a specific area of your application 
+    improves development and maintenance of your app by making it easier to follow how changes to state affect its behaviour.
+
+Stateful component (ex21)
+  - state consists of any data your application needs to know about, that can change over time.
+  - create state in a React component by declaring a state property on the component class in its constructor.
+    - this initializes the component with state when it is created.
+  - the state property must be set to a js object.
+this.state = {}
+  - You must create a class component extending React.Component in order to create state like this.
+  - ex22
+    - allows you to track important data in your app and render a UI in response to changes in this data.
+    - React uses a virtual DOM, to keep track of changes behind the scenes.
+    - no other components are aware of its state, it is completely encapsulated unless you pass state data to a child component as props.
+
+Render State in the User Interface another way (ex23)
+  - in the render() before the return statement, we can write js directly.
+    - can declare funcs, access data from state or props, perform computations on this data, etc.
+render() {
+    const name = this.state.name;
+    return (
+      <div>
+        <h1>
+          {name}
+        </h1>
+
+Set State with this.setState(24)
+  - method for updating component state, this.setState() called within the component class
+    - passing in an obj with key-value pairs
+  - the keys are the state properties, and the values are the updated state data.
+
+this.setState({
+  username: 'Lewis'
+});
+  - React expects us to never modify state directly and always use this.setState() instead.
+  - React may batch multiple state updates in order to improve peformance. state updates through setState method can be asynchronous.
+  - there is alternative syntax for the setState method which provides a way around the problem
+
+Bind 'this' to a Class method
+  - a class method typically needs to use the this keyword so it can access properties on the class (state, props) inside the scope of the method.
+  - one way is to explicitly bind this in the constructor so this becomes bound to the class methods when the comp is initialized.
+
+Use State to toggle an element (26)
+  - sometimes you might need to know the previous state when updating the state
+  - however state updates may be asynchronous
+    - react may batch multiple setState() calls into a single update.
+  - you cant rely on the previous value of this.state or this.props when calculating the next value so dont use code like this.
+
+this.setState({
+counter: this.state.counter + this.props.increment
+});
+
+- instead pass setState a function that allows us to access state and props. 
+- using a func with setState guarantees you are working with the most current values of state and props.
+
+this.setState((state, props) => ({
+  counter: state.counter + props.increment
+}));
+
+this.setState(state => ({
+  counter: state.counter + 1
+}));
+
+
