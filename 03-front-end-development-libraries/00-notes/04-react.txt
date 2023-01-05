@@ -194,3 +194,7 @@ this.setState({
   - React expects us to never modify state directly and always use this.setState() instead.
   - React may batch multiple state updates in order to improve peformance. state updates through setState method can be asynchronous.
   - there is alternative syntax for the setState method which provides a way around the problem
+
+Bind 'this' to a Class method
+  - a class method typically needs to use the this keyword so it can access properties on the class (state, props) inside the scope of the method.
+  - one way is to explicitly bind this in the constructor so this becomes bound to the class methods when the comp is initialized.
